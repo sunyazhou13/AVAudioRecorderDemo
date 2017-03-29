@@ -1,0 +1,42 @@
+//
+//  BDRecorder.h
+//  AVAudioRecorderDemo
+//
+//  Created by sunyazhou on 2017/3/29.
+//  Copyright © 2017年 Baidu, Inc. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+#import <AVFoundation/AVFoundation.h>
+
+//录音停止的回调
+typedef void (^BDRecordingStopCompletionHanlder)(BOOL);
+//保存录音文件完成的回调
+typedef void (^BDRecordingSaveCompletionHanlder)(BOOL, id);
+
+@interface BDRecorder : NSObject
+
+/**
+ * 外部获取当前录制的时间
+ * 小时:分钟:秒  当然后续可以加微秒和毫秒哈就是格式字符串 00:03:02 这样
+ */
+@property (nonatomic, readonly) NSString *formattedCurrentTime;
+
+- (BOOL)record; //开始录音
+
+- (void)pause;  //暂停录音
+
+- (void)stopWithCompletionHandler:(BDRecordingStopCompletionHanlder)handler;
+
+- (void)saveRecordingWithName:(NSString *)name
+            completionHandler:(BDRecordingSaveCompletionHanlder)handler;
+
+
+/**
+ 回放录制的文件
+ @param fileUrl 文件URL
+ @return 播放是否成功
+ */
+- (BOOL)playbackURL:(NSURL *)fileUrl;
+
+@end
