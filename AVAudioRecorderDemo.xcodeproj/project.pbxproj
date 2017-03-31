@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		67964C83BC889CA261076966 /* libPods-AVAudioRecorderDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 53552AED275BDBEF417DCC13 /* libPods-AVAudioRecorderDemo.a */; };
+		8F14D09C1E8DFD5A00A348A3 /* MemoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F14D09B1E8DFD5A00A348A3 /* MemoModel.m */; };
 		8F1F9CAC1E89F1E60044DC4C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F1F9CAB1E89F1E60044DC4C /* main.m */; };
 		8F1F9CAF1E89F1E60044DC4C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F1F9CAE1E89F1E60044DC4C /* AppDelegate.m */; };
 		8F1F9CB21E89F1E60044DC4C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F1F9CB11E89F1E60044DC4C /* ViewController.m */; };
@@ -21,6 +22,8 @@
 		53552AED275BDBEF417DCC13 /* libPods-AVAudioRecorderDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AVAudioRecorderDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		67BA6A9AD85EF734A8C0C3ED /* Pods-AVAudioRecorderDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AVAudioRecorderDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-AVAudioRecorderDemo/Pods-AVAudioRecorderDemo.release.xcconfig"; sourceTree = "<group>"; };
 		8CF58FC7A149F99789C5F23A /* Pods-AVAudioRecorderDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AVAudioRecorderDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AVAudioRecorderDemo/Pods-AVAudioRecorderDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		8F14D09A1E8DFD5A00A348A3 /* MemoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemoModel.h; sourceTree = "<group>"; };
+		8F14D09B1E8DFD5A00A348A3 /* MemoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemoModel.m; sourceTree = "<group>"; };
 		8F1F9CA71E89F1E60044DC4C /* AVAudioRecorderDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AVAudioRecorderDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F1F9CAB1E89F1E60044DC4C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8F1F9CAD1E89F1E60044DC4C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -112,6 +115,8 @@
 			children = (
 				8F73B0721E8B525100F26291 /* BDRecorder.h */,
 				8F73B0731E8B525100F26291 /* BDRecorder.m */,
+				8F14D09A1E8DFD5A00A348A3 /* MemoModel.h */,
+				8F14D09B1E8DFD5A00A348A3 /* MemoModel.m */,
 			);
 			name = Core;
 			sourceTree = "<group>";
@@ -239,6 +244,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F14D09C1E8DFD5A00A348A3 /* MemoModel.m in Sources */,
 				8F1F9CB21E89F1E60044DC4C /* ViewController.m in Sources */,
 				8F1F9CAF1E89F1E60044DC4C /* AppDelegate.m in Sources */,
 				8F1F9CAC1E89F1E60044DC4C /* main.m in Sources */,

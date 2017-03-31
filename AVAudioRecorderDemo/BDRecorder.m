@@ -8,6 +8,8 @@
 
 #import "BDRecorder.h"
 
+#import "MemoModel.h"
+
 @interface BDRecorder () <AVAudioRecorderDelegate>
 
 @property (nonatomic, strong) AVAudioPlayer *player;
@@ -58,11 +60,64 @@
 
 - (void)saveRecordingWithName:(NSString *)name
             completionHandler:(BDRecordingSaveCompletionHanlder)handler {
+    NSTimeInterval timestamp = [NSDate timeIntervalSinceReferenceDate];
+    NSString *filename = [NSString stringWithFormat:@"%@-%f.caf", name, timestamp];
+    NSString *docDir = [self documentsDirectory];
+    NSString *destPath = [docDir stringByAppendingPathComponent:filename];
+    NSURL *srcURL = self.recorder.url;
+    NSURL *destURL = [NSURL fileURLWithPath:destPath];
+    NSError *error;
+    BOOL success = [[NSFileManager defaultManager] copyItemAtURL:srcURL toURL:destURL error:&error];
+    if (success) {
+        MemoModel *model = [MemoModel memoWithTitle:name url:destURL];
+        handler(YES, model);
+    }
+    
 }
 
+- (NSString *)documentsDirectory {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    return [paths objectAtIndex:0];
+}
+
+#pragma mark - 
+#pragma mark - AVAudioRecorder Delegate
 - (void)audioRecorderDidFinishRecording:(AVAudioRecorder *)recorder
                            successfully:(BOOL)flag {
     if (self.completionHandler) { self.completionHandler(flag); }
 }
 
+
+
+/**
+ 回放录制的文件
+ 
+ @param memo 备忘录文件model 放着当前播放的model
+ @return 是否播放成功
+ */
+- (BOOL)playbackURL:(MemoModel *)memo {
+    [self.player stop];
+    self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:memo.url error:nil];
+    if (self.player) {
+        [self.player prepareToPlay];
+        return YES;
+    }
+    return NO;
+}
+
+
+/**
+ 返回当前录制的时间格式 HH:mm:ss
+
+ @return 返回组装好的字符串
+ */
+- (NSString *)formattedCurrentTime {
+    NSUInteger time = (NSUInteger)self.recorder.currentTime;
+    NSInteger hours = (time / 3600);
+    NSInteger minutes = (time / 60) % 60;
+    NSInteger seconds = time % 60;
+    
+    NSString *format = @"%02i:%02i:%02i";
+    return [NSString stringWithFormat:format, hours, minutes, seconds];
+}
 @end

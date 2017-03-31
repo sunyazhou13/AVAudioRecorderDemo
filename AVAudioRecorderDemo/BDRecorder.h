@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <AVFoundation/AVFoundation.h>
 
+@class MemoModel;
 //录音停止的回调
 typedef void (^BDRecordingStopCompletionHanlder)(BOOL);
 //保存录音文件完成的回调
@@ -31,12 +32,11 @@ typedef void (^BDRecordingSaveCompletionHanlder)(BOOL, id);
 - (void)saveRecordingWithName:(NSString *)name
             completionHandler:(BDRecordingSaveCompletionHanlder)handler;
 
-
 /**
  回放录制的文件
- @param fileUrl 文件URL
- @return 播放是否成功
- */
-- (BOOL)playbackURL:(NSURL *)fileUrl;
 
+ @param memo 备忘录文件model 放着当前播放的model
+ @return 是否播放成功
+ */
+- (BOOL)playbackURL:(MemoModel *)memo;
 @end
