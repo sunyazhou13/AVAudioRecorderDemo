@@ -15,6 +15,12 @@
 		8F1F9CB51E89F1E60044DC4C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F1F9CB31E89F1E60044DC4C /* Main.storyboard */; };
 		8F1F9CB71E89F1E60044DC4C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F1F9CB61E89F1E60044DC4C /* Assets.xcassets */; };
 		8F1F9CBA1E89F1E60044DC4C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F1F9CB81E89F1E60044DC4C /* LaunchScreen.storyboard */; };
+		8F2091E11E947FAF0034E75A /* LevelMeterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F2091E01E947FAF0034E75A /* LevelMeterView.m */; };
+		8F2091E61E9480D30034E75A /* LevelMeterColorThreshold.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F2091E51E9480D30034E75A /* LevelMeterColorThreshold.m */; };
+		8F2091EA1E948B010034E75A /* MemoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F2091E81E948B010034E75A /* MemoCell.m */; };
+		8F2091EB1E948B010034E75A /* MemoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F2091E91E948B010034E75A /* MemoCell.xib */; };
+		8F2091EE1E94B0410034E75A /* LevelPair.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F2091ED1E94B0410034E75A /* LevelPair.m */; };
+		8F2091F11E94B1170034E75A /* MeterTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F2091F01E94B1170034E75A /* MeterTable.m */; };
 		8F73B0741E8B525100F26291 /* BDRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F73B0731E8B525100F26291 /* BDRecorder.m */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +40,17 @@
 		8F1F9CB61E89F1E60044DC4C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8F1F9CB91E89F1E60044DC4C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8F1F9CBB1E89F1E60044DC4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8F2091DF1E947FAF0034E75A /* LevelMeterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelMeterView.h; sourceTree = "<group>"; };
+		8F2091E01E947FAF0034E75A /* LevelMeterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelMeterView.m; sourceTree = "<group>"; };
+		8F2091E41E9480D30034E75A /* LevelMeterColorThreshold.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelMeterColorThreshold.h; sourceTree = "<group>"; };
+		8F2091E51E9480D30034E75A /* LevelMeterColorThreshold.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelMeterColorThreshold.m; sourceTree = "<group>"; };
+		8F2091E71E948B010034E75A /* MemoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemoCell.h; sourceTree = "<group>"; };
+		8F2091E81E948B010034E75A /* MemoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemoCell.m; sourceTree = "<group>"; };
+		8F2091E91E948B010034E75A /* MemoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MemoCell.xib; sourceTree = "<group>"; };
+		8F2091EC1E94B0410034E75A /* LevelPair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelPair.h; sourceTree = "<group>"; };
+		8F2091ED1E94B0410034E75A /* LevelPair.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelPair.m; sourceTree = "<group>"; };
+		8F2091EF1E94B1170034E75A /* MeterTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeterTable.h; sourceTree = "<group>"; };
+		8F2091F01E94B1170034E75A /* MeterTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeterTable.m; sourceTree = "<group>"; };
 		8F73B0721E8B525100F26291 /* BDRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDRecorder.h; sourceTree = "<group>"; };
 		8F73B0731E8B525100F26291 /* BDRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BDRecorder.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -110,13 +127,40 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		8F2091E21E94806D0034E75A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8F2091DF1E947FAF0034E75A /* LevelMeterView.h */,
+				8F2091E01E947FAF0034E75A /* LevelMeterView.m */,
+				8F2091E41E9480D30034E75A /* LevelMeterColorThreshold.h */,
+				8F2091E51E9480D30034E75A /* LevelMeterColorThreshold.m */,
+				8F2091E71E948B010034E75A /* MemoCell.h */,
+				8F2091E81E948B010034E75A /* MemoCell.m */,
+				8F2091E91E948B010034E75A /* MemoCell.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		8F2091E31E9480940034E75A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8F2091EC1E94B0410034E75A /* LevelPair.h */,
+				8F2091ED1E94B0410034E75A /* LevelPair.m */,
+				8F14D09A1E8DFD5A00A348A3 /* MemoModel.h */,
+				8F14D09B1E8DFD5A00A348A3 /* MemoModel.m */,
+				8F2091EF1E94B1170034E75A /* MeterTable.h */,
+				8F2091F01E94B1170034E75A /* MeterTable.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		8F73B0761E8B526700F26291 /* Core */ = {
 			isa = PBXGroup;
 			children = (
 				8F73B0721E8B525100F26291 /* BDRecorder.h */,
 				8F73B0731E8B525100F26291 /* BDRecorder.m */,
-				8F14D09A1E8DFD5A00A348A3 /* MemoModel.h */,
-				8F14D09B1E8DFD5A00A348A3 /* MemoModel.m */,
+				8F2091E31E9480940034E75A /* Models */,
+				8F2091E21E94806D0034E75A /* Views */,
 			);
 			name = Core;
 			sourceTree = "<group>";
@@ -157,6 +201,11 @@
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 59VYXJ3S74;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -186,6 +235,7 @@
 				8F1F9CBA1E89F1E60044DC4C /* LaunchScreen.storyboard in Resources */,
 				8F1F9CB71E89F1E60044DC4C /* Assets.xcassets in Resources */,
 				8F1F9CB51E89F1E60044DC4C /* Main.storyboard in Resources */,
+				8F2091EB1E948B010034E75A /* MemoCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -245,8 +295,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				8F14D09C1E8DFD5A00A348A3 /* MemoModel.m in Sources */,
+				8F2091E61E9480D30034E75A /* LevelMeterColorThreshold.m in Sources */,
 				8F1F9CB21E89F1E60044DC4C /* ViewController.m in Sources */,
+				8F2091EA1E948B010034E75A /* MemoCell.m in Sources */,
 				8F1F9CAF1E89F1E60044DC4C /* AppDelegate.m in Sources */,
+				8F2091E11E947FAF0034E75A /* LevelMeterView.m in Sources */,
+				8F2091F11E94B1170034E75A /* MeterTable.m in Sources */,
+				8F2091EE1E94B0410034E75A /* LevelPair.m in Sources */,
 				8F1F9CAC1E89F1E60044DC4C /* main.m in Sources */,
 				8F73B0741E8B525100F26291 /* BDRecorder.m in Sources */,
 			);

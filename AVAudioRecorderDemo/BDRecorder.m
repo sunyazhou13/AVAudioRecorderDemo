@@ -9,13 +9,16 @@
 #import "BDRecorder.h"
 
 #import "MemoModel.h"
+#import "LevelPair.h"
+#import "MeterTable.h"
+
 
 @interface BDRecorder () <AVAudioRecorderDelegate>
 
 @property (nonatomic, strong) AVAudioPlayer *player;
 @property (nonatomic, strong) AVAudioRecorder *recorder;
 @property (nonatomic, strong) BDRecordingStopCompletionHanlder completionHandler;
-
+@property (nonatomic, strong) MeterTable *meterTable;
 @end
 
 @implementation BDRecorder
@@ -37,10 +40,13 @@
         self.recorder = [[AVAudioRecorder alloc] initWithURL:fileURL settings:setting error:&error];
         if (self.recorder) {
             self.recorder.delegate = self;
+            self.recorder.meteringEnabled = YES;
             [self.recorder prepareToRecord];
         } else {
             NSLog(@"Create Recorder Error: %@",[error localizedDescription]);
-        } 
+        }
+        
+        self.meterTable = [[MeterTable alloc] init];
     }
     return self;
 }
@@ -99,7 +105,7 @@
     [self.player stop];
     self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:memo.url error:nil];
     if (self.player) {
-        [self.player prepareToPlay];
+        [self.player play];
         return YES;
     }
     return NO;
@@ -119,5 +125,15 @@
     
     NSString *format = @"%02i:%02i:%02i";
     return [NSString stringWithFormat:format, hours, minutes, seconds];
+}
+
+
+- (LevelPair *)levels {
+    [self.recorder updateMeters];
+    float avgPower = [self.recorder averagePowerForChannel:0];
+    float peakPower = [self.recorder peakPowerForChannel:0];
+    float linearLevel = [self.meterTable valueForPower:avgPower];
+    float linearPeak = [self.meterTable valueForPower:peakPower];
+    return [LevelPair levelsWithLevel:linearLevel peakLevel:linearPeak];
 }
 @end

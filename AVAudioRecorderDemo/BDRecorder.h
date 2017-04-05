@@ -9,11 +9,12 @@
 #import <Foundation/Foundation.h>
 #import <AVFoundation/AVFoundation.h>
 
+@class LevelPair;
 @class MemoModel;
 //录音停止的回调
-typedef void (^BDRecordingStopCompletionHanlder)(BOOL);
+typedef void (^BDRecordingStopCompletionHanlder)(BOOL result);
 //保存录音文件完成的回调
-typedef void (^BDRecordingSaveCompletionHanlder)(BOOL, id);
+typedef void (^BDRecordingSaveCompletionHanlder)(BOOL result, id object);
 
 @interface BDRecorder : NSObject
 
@@ -39,4 +40,13 @@ typedef void (^BDRecordingSaveCompletionHanlder)(BOOL, id);
  @return 是否播放成功
  */
 - (BOOL)playbackURL:(MemoModel *)memo;
+
+
+
+/**
+ 计算音频视波等级 显示绿黄红三种音量的标示
+
+ @return <#return value description#>
+ */
+- (LevelPair *)levels;
 @end
